@@ -28,7 +28,7 @@
 <script> 
 let correct = 0;
 let wrong = 0;
-var cntNew = 0;
+var wrongSeqCount = 0;
 function checkGuess (){
     //console.log("Getting form values")
     password = document.getElementById("form_age").value
@@ -37,25 +37,21 @@ function checkGuess (){
     
     out = document.getElementById("result")
     if(password==text){
-        cntNew = 0;
+        wrongSeqCount = 0;
         correct = correct + 1;
-        out.innerHTML = "correct : " + correct +"wrong : " + wrong
-        alert("You got it right")  
+        out.innerHTML = "correct : " + correct +" wrong : " + wrong
+        alert("You got it right")   
     } else {
-        cntNew = cntNew + 1;
-        wrong = wrong + 1;
-        out.innerHTML = "correct : " + correct + "wrong : " + wrong
+        wrongSeqCount += 1;
+        wrong += 1;
+        out.innerHTML = "correct : " + correct + " wrong : " + wrong
         alert("Wrong President")
-        if (cntNew >=3){
-            if (wrong >=3){
-                incorrectcheckGuess()
-            }
+        if (wrongSeqCount >=3){
+            incorrectcheckGuess()
         }
     }
 }
-function incorrectcheckGuess(){
-    alert("Account Locked")
-}
+
 </script>
 <script>
 var useImage = 1;
